@@ -5,7 +5,10 @@
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<TechEventInfo> GetTechEvent([Service] TechEventDBContext context) =>
-            context.TechEventInfos;
+        public async Task<IEnumerable<TechEventInfo>> GetTechEvents([Service] ITechEventRepository techEventRepository) =>
+            await techEventRepository.GetTechEvents();
+
+        public async Task<TechEventInfo> GetTechEvent([Service] ITechEventRepository techEventRepository, int id) =>
+            await techEventRepository.GetTechEventById(id);
     }
 }
