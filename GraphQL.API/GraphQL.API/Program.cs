@@ -1,7 +1,7 @@
 global using Microsoft.EntityFrameworkCore;
 global using GraphQL.API.Infrastructure.DBContext;
 global using GraphQL.API.Repositories;
-using GraphQL.API.Infrastructure;
+global using GraphQL.API.GraphqlCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,12 +12,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITechEventRepository, TechEventRepository>();
-builder.Services.AddGraphQLServer().AddQueryType<Query>().AddProjections().AddFiltering().AddSorting();
+//builder.Services.AddSingleton<TechEventInfoType>();
+builder.Services.AddGraphQLServer().AddQueryType<Query>()
+    .AddProjections()
+    .AddFiltering()
+    .AddSorting()
+    .AddType<TechEventInfoType>();
 builder.Services.AddDbContext<TechEventDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("GraphQLDBConnection"));
 });
-builder.Services.AddTransient<ITechEventRepository, TechEventRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

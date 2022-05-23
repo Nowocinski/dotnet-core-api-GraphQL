@@ -1,4 +1,4 @@
-﻿namespace GraphQL.API.Infrastructure
+﻿namespace GraphQL.API.GraphqlCore
 {
     public class Query
     {
