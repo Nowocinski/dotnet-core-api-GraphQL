@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace GraphQL.API.Infrastructure.DBContext
+﻿namespace GraphQL.API.Infrastructure.DBContext
 {
     public partial class TechEventInfo
     {
