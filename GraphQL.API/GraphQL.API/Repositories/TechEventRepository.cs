@@ -24,7 +24,7 @@
 
         public async Task<TechEventInfo[]> GetTechEvents()
         {
-            return _context.TechEventInfos.ToArray();
+            return await _context.TechEventInfos.ToArrayAsync();
         }
     }
 }
