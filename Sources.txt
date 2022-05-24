@@ -1,0 +1,5 @@
+Build an API in .NET Core with GraphQL:
+https://dev.to/dynamicanupam/build-an-api-in-net-core-with-graphql-40lk
+
+.NET Core 5 with GraphQL (Hot Chocolate)
+https://github.com/binarythistle/S04E01---.NET-5-GraphQL-API
