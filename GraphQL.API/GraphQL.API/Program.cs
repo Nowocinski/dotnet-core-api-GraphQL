@@ -12,8 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITechEventRepository, TechEventRepository>();
-//builder.Services.AddSingleton<TechEventInfoType>();
-builder.Services.AddGraphQLServer().AddQueryType<Query>()
+builder.Services.AddGraphQLServer()
+    .RegisterDbContext<TechEventDBContext>()
+    .AddQueryType<Query>()
     .AddProjections()
     .AddFiltering()
     .AddSorting()
